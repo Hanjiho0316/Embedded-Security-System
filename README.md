@@ -6,9 +6,10 @@
 ---
 
 ## 📺 Demo (동작 예시)
-<p align="center">
-<video src="https://github.com/Hanjiho0316/Embedded-Security-System/raw/main/imgs/video.mp4" width="100%" autoplay loop muted playsinline></video>
-</p>
+
+
+https://github.com/user-attachments/assets/101403ed-547b-4de2-a92e-20710cd1b59c
+
 
 ---
 
