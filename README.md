@@ -8,7 +8,10 @@
 ## 📺 Demo (동작 예시)
 
 
-https://github.com/user-attachments/assets/6d9fb04b-338f-4bf2-8271-149323f60f66
+
+
+https://github.com/user-attachments/assets/0d01a46a-372a-4b9e-bb80-a1413f6abdf1
+
 
 
 ---
