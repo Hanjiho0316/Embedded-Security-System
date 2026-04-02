@@ -7,7 +7,7 @@
 
 ## 📺 Demo (동작 예시)
 <p align="center">
-  <video src="[https://github.com/Hanjiho0316/Embedded-Security-System/raw/main/imgs/video.mp4](https://github.com/Hanjiho0316/Embedded-Security-System/blob/main/imgs/video.mp4)" width="100%" autoplay loop muted playsinline></video>
+<video src="https://github.com/Hanjiho0316/Embedded-Security-System/raw/main/imgs/video.mp4" width="100%" autoplay loop muted playsinline></video>
 </p>
 
 ---
