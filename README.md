@@ -73,9 +73,9 @@ graph LR
 
     subgraph "2. 메인 제어부 (STM32F411RE)"
         GPIO["GPIO 스캔<br>(비밀번호 입력)"]
-        ADC["ADC1_IN9 (PB1)<br>(아날로그 전압 → 디지털)"]
+        ADC["ADC1_IN9 (PB1)<br>(아날로그 전압 변환)"]
         
-        Logic{"보안 인증 로직<br>PIN 검증 AND 광량(>2500)"}
+        Logic{"보안 인증 로직<br>PIN 검증 AND 광량 조건"}
         
         PWM["PWM 생성기<br>(모터 속도 및 방향 제어)"]
         UART["UART2 (PA2, PA3)<br>(115200bps 통신)"]
@@ -94,13 +94,13 @@ graph LR
     ADC --> Logic
     
     Logic -->|인증 성공 시 활성화| PWM
-    Logic -->|시스템 상태 및 센서값 출력| UART
+    Logic -->|상태 및 센서값 출력| UART
     
-    UART -->|UART 통신 (Tx/Rx)| Terminal
-    Terminal -->|제어 명령 (f, r, s, 1~9)| UART
+    UART -->|UART 양방향 통신| Terminal
+    Terminal -->|제어 명령어 전송| UART
     UART -->|모터 제어 신호 전달| PWM
     
-    PWM -->|정/역회전 및 속도 제어| Motor
+    PWM -->|정회전 역회전 속도 제어| Motor
     
     %% 스타일 지정
     style Logic fill:#ffe6cc,stroke:#d79b00,stroke-width:2px,color:#333
