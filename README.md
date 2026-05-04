@@ -62,6 +62,20 @@ https://github.com/user-attachments/assets/0d01a46a-372a-4b9e-bb80-a1413f6abdf1
 
 ---
 
+## 📂 프로젝트 구조 (Project Structure)
+```text
+.
+├── code/                   # 모든 소스 코드 및 헤더 파일
+│   ├── main.c              # 메인 로직 및 인증/제어 프로세스
+│   ├── device_driver.c     # ADC, Motor, Keypad 드라이버 구현
+│   └── device_driver.h     # 레지스터 정의 및 매크로
+├── imgs/                   # 데모 영상 및 이미지 파일
+├── .gitignore              # 불필요한 빌드 파일 제외
+└── README.md               # 프로젝트 설명서
+
+
+---
+
 ## 📊 시스템 구조도 (System Architecture)
 
 ```mermaid
@@ -106,18 +120,3 @@ graph LR
     style Logic fill:#ffe6cc,stroke:#d79b00,stroke-width:2px,color:#333
     style Terminal fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px,color:#333
     style Motor fill:#d5e8d4,stroke:#82b366,stroke-width:2px,color:#333
-
----
-
-## 📂 프로젝트 구조 (Project Structure)
-```text
-.
-├── code/                   # 모든 소스 코드 및 헤더 파일
-│   ├── main.c              # 메인 로직 및 인증/제어 프로세스
-│   ├── device_driver.c     # ADC, Motor, Keypad 드라이버 구현
-│   └── device_driver.h     # 레지스터 정의 및 매크로
-├── imgs/                   # 데모 영상 및 이미지 파일
-├── .gitignore              # 불필요한 빌드 파일 제외
-└── README.md               # 프로젝트 설명서
-
-
