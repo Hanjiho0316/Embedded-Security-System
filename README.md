@@ -73,48 +73,4 @@ https://github.com/user-attachments/assets/0d01a46a-372a-4b9e-bb80-a1413f6abdf1
 ├── .gitignore              # 불필요한 빌드 파일 제외
 └── README.md               # 프로젝트 설명서
 
----
 
-## 시스템 구조
-
-graph LR
-    subgraph "1. 입력 및 인증부 (Input & Authentication)"
-        Keypad["🔢 4x4 Keypad<br>(PC0-PC2, PC4-PC8)"]
-        LDR["☀️ LDR 조도 센서<br>+ 10kΩ Voltage Divider"]
-    end
-
-    subgraph "2. 메인 제어부 (STM32F411RE)"
-        GPIO["GPIO 스캔<br>(비밀번호 입력)"]
-        ADC["ADC1_IN9 (PB1)<br>(아날로그 전압 → 디지털)"]
-        
-        Logic{"보안 인증 로직<br>PIN 검증 AND 광량(>2500)"}
-        
-        PWM["PWM 생성기<br>(모터 속도 및 방향 제어)"]
-        UART["UART2 (PA2, PA3)<br>(115200bps 통신)"]
-    end
-
-    subgraph "3. 출력 및 제어부 (Output & UI)"
-        Motor["⚙️ DC 모터<br>(PA1, PA5, PA6)"]
-        Terminal["💻 PC 시리얼 터미널<br>(명령어 제어 및 모니터링)"]
-    end
-
-    %% 데이터 흐름 연결
-    Keypad -->|물리적 PIN 입력| GPIO
-    LDR -->|아날로그 전압| ADC
-    
-    GPIO --> Logic
-    ADC --> Logic
-    
-    Logic -->|인증 성공 시 활성화| PWM
-    Logic -->|시스템 상태 및 센서값 출력| UART
-    
-    UART -->|UART 통신 (Tx/Rx)| Terminal
-    Terminal -->|제어 명령 (f, r, s, 1~9)| UART
-    UART -->|모터 제어 신호 전달| PWM
-    
-    PWM -->|정/역회전 및 속도 제어| Motor
-    
-    %% 스타일 지정 (옵션)
-    style Logic fill:#ffe6cc,stroke:#d79b00,stroke-width:2px,color:#333
-    style Terminal fill:#dae8fc,stroke:#6c8ebf,stroke-width:2px,color:#333
-    style Motor fill:#d5e8d4,stroke:#82b366,stroke-width:2px,color:#333
